@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { createFile } from "../controllers/createFile.js";
 import { deleteFile } from "../controllers/deleteFile.js";
-import { readFile, readFiles } from "../controllers/readFile.js";
+import { readFile } from "../controllers/readFile.js";
 import { updateFile } from "../controllers/updateFile.js";
 
 const router = Router();

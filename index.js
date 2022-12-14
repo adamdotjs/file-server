@@ -1,11 +1,13 @@
 import * as dotenv from "dotenv";
 import express from "express";
+import path from "path";
 import { fileRoutes } from "./routes/file.js";
 import { indexRoutes } from "./routes/index.js";
-
 const app = express();
 
 dotenv.config();
+
+app.use(express.static("public"));
 
 app.use("/", indexRoutes);
 app.use("/files", fileRoutes);

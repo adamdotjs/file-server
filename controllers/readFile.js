@@ -1,7 +1,6 @@
 import soap from "soap";
 
-const url = `http://internet:47tig7D@192.168.1.20/rpc/services/ReadObject?wsdl`;
-const auth = "Basic" + Buffer.from("internet:47tig7D").toString("base64");
+const url = `https://internet:47tig7D@epace.tigerpress.com/rpc/services/ReadObject?wsdl`;
 
 const readFiles = async (req, res) => {
   const args = {
@@ -17,7 +16,7 @@ const readFiles = async (req, res) => {
   }
 };
 
-const readFile = async (req, res) => {
+const readFile = (req, res) => {
   const args = {
     inventoryItem: {
       id: req.params.id,
@@ -25,10 +24,14 @@ const readFile = async (req, res) => {
   };
 
   soap.createClient(url, {}, function (err, client) {
-    client.setSecurity(new soap.BasicAuthSecurity("internet", "47tig7D"));
-    client.readInventoryItem(args, function (err, result) {
-      res.status(200).send(result.out.description);
-    });
+    if (client) {
+      client.setSecurity(new soap.BasicAuthSecurity("internet", "47tig7D"));
+      client.readInventoryItem(args, function (err, result) {
+        res.render("file.ejs", { file: result.out });
+      });
+    } else {
+      console.log(err);
+    }
   });
 };
 
