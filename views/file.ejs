@@ -1,15 +1,5 @@
-<%- include("partials/header.ejs") %>
+<%- include("partials/header.ejs") %> 
 
-<div>
-  <h2><%= file.id %></h2>
-  <h3><%= file.description %></h3>
-  <p><%= file.addlDesc %></p>
-  <p><%= file.customer %></p>
-  <p>Created on <%= file.dateSetup.toLocaleDateString('en-US') %></p>
-  <p>
-    Last updated on <%= file.dateLastPriceChg.toLocaleDateString('en-US') %>
-  </p>
-  <img src="<%= `data:image/jpg;base64, ${image.content}` %>" alt="" />
-</div>
+<%- include("partials/fileCard.ejs", { file }) %>
 
-<%- include("partials/footer.ejs") %>
+<%- include("partials/footer.ejs") %></div>

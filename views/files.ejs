@@ -1,0 +1,8 @@
+<%- include("partials/header.ejs") %>
+
+<ul>
+  <% files.forEach(file => { %> <%- include("partials/fileCard.ejs", {file}) %>
+  <% }) %>
+</ul>
+
+<%- include("partials/footer.ejs") %>

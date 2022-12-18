@@ -1,0 +1,21 @@
+<div class="fileCard">
+  <div class="fileCardImage">
+    <img src="<%= `data:image/jpg;base64, ${file.image.content}` %>" alt="" />
+  </div>
+  <div class="fileCardContent">
+    <p>Customer: <%= file.customer %></p>
+    <h2>Part Number: <%= file.id %></h2>
+    <h3>Description: <%= file.description %></h3>
+    <p>Revision: <%= file.addlDesc %></p>
+    <p>Print Colors: <%= file.minOrderQty %> / <%= file.maxOrderQty %></p>
+    <p>Ink Requirements: <%= file.briefDescription %></p>
+    <p>Created on <%= file.dateSetup.toLocaleDateString('en-US') %></p>
+    <p>
+      Last updated on <%= file.dateLastPriceChg.toLocaleDateString('en-US') %>
+    </p>
+    <div class="buttonGroup">
+      <a href=<%= `/files/update/${file.id}` %> >Update Item</a>
+      <a download=<%= `/${file.printFile.name}` %> href=<%= `data:${file.printFile.mimeType};base64,${file.printFile.content}` %> title="Download File">Download Print File</a>
+    </div>
+  </div>
+</div>
