@@ -1,9 +1,8 @@
 import soap from "soap";
 import { readAttachment } from "./readAttachment.js";
 
-const url = `https://internet:47tig7D@epace.tigerpress.com/rpc/services/ReadObject?wsdl`;
-
 const readFile = async (req, res) => {
+  const url = `https://internet:47tig7D@epace.tigerpress.com/rpc/services/ReadObject?wsdl`;
   const args = {
     inventoryItem: { id: req.params.id },
   };

@@ -1,31 +1,61 @@
 <%- include("partials/header.ejs") %>
 
 <div>
-  <h1>Update file for Part <%= id %></h1>
-  <form method="POST" action="/files/update/<%= id %>">
+  <h1>Update file for Part <%= file.id %></h1>
+  <form method="POST" action="/files/update/<%= file.id %>">
     <label>
       <span>Customer ID</span>
-      <input type="text" name="customer" id="customer" />
+      <input
+        type="text"
+        name="customer"
+        id="customer"
+        value="<%= file.customer %>"
+      />
     </label>
     <label>
       <span>Description</span>
-      <input type="text" name="description" id="description" />
+      <input
+        type="text"
+        name="description"
+        id="description"
+        value="<%= file.description %>"
+      />
     </label>
     <label>
       <span>Revision Number</span>
-      <input type="text" name="addlDesc" id="addlDesc" />
+      <input
+        type="text"
+        name="addlDesc"
+        id="addlDesc"
+        value="<%= file.addlDesc %>"
+      />
     </label>
     <label>
       <span>Colors (front)</span>
-      <input type="text" name="minOrderQty" id="minOrderQty" />
+      <input
+        type="text"
+        name="minOrderQty"
+        id="minOrderQty"
+        value="<%= file.minOrderQty %>"
+      />
     </label>
     <label>
       <span>Colors (back)</span>
-      <input type="text" name="maxOrderQty" id="maxOrderQty" />
+      <input
+        type="text"
+        name="maxOrderQty"
+        id="maxOrderQty"
+        value="<%= file.maxOrderQty %>"
+      />
     </label>
     <label>
       <span>Ink Requirements</span>
-      <input type="text" name="briefDescription" id="briefDescription" />
+      <input
+        type="text"
+        name="briefDescription"
+        id="briefDescription"
+        value="<%= file.briefDescription %>"
+      />
     </label>
     <!-- <label>
       <span>Preview Image</span>
