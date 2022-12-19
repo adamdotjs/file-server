@@ -1,6 +1,6 @@
 <div class="fileCard">
   <div class="fileCardImage">
-    <img src="<%= `data:image/jpg;base64, ${file.image.content}` %>" alt="" />
+    <img src="<%= `data:image/jpg;base64, ${file.preview.content}` %>" alt="" />
   </div>
   <div class="fileCardContent">
     <p>Customer: <%= file.customer %></p>
@@ -15,7 +15,7 @@
     </p>
     <div class="buttonGroup">
       <a href=<%= `/files/update/${file.id}` %> >Update Item</a>
-      <a download=<%= `/${file.printFile.name}` %> href=<%= `data:${file.printFile.mimeType};base64,${file.printFile.content}` %> title="Download File">Download Print File</a>
+      <a download=<%= `/${file.printFile.name}` %> href=<%= `data:${file.printFile.mimeType};base64,${file.printFile.content}` %> title=<%= `/${file.printFile.name}` %> >Download Print File</a>
     </div>
   </div>
 </div>

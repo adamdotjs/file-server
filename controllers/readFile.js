@@ -10,12 +10,12 @@ const readFile = async (req, res) => {
 
   const client = await soap.createClientAsync(url);
   client.setSecurity(new soap.BasicAuthSecurity("internet", "47tig7D"));
-
   const response = await client.readInventoryItemAsync(args);
+
   const file = await response[0].out;
-  const image = await readAttachment(file.thumbnail);
+  const preview = await readAttachment(file.thumbnail);
   const printFile = await readAttachment(file.document);
-  res.render("file.ejs", { file: { ...file, image, printFile } });
+  res.render("file.ejs", { file: { ...file, preview, printFile } });
 };
 
 export { readFile };

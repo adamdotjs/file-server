@@ -2,7 +2,7 @@
 
 <div>
   <h1>Update file for Part <%= id %></h1>
-  <form method="PUT" action=<%= `/files/update/${id}` %> >
+  <form method="POST" action="/files/update/<%= id %>">
     <label>
       <span>Customer ID</span>
       <input type="text" name="customer" id="customer" />
@@ -27,14 +27,14 @@
       <span>Ink Requirements</span>
       <input type="text" name="briefDescription" id="briefDescription" />
     </label>
-		<label>
-			<span>Preview Image</span>
-			<input type="file" name="thumbnail" id="thumbnail" />
-		</label>
+    <!-- <label>
+      <span>Preview Image</span>
+      <input type="file" name="thumbnail" id="thumbnail" />
+    </label>
     <label>
       <span>New Print File</span>
       <input type="file" name="document" id="document" />
-    </label>
+    </label> -->
     <button>Submit Changes</button>
   </form>
 </div>

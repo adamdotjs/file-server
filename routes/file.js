@@ -13,7 +13,7 @@ router.get("/file/:id", readFile);
 router.get("/update/:id", (req, res) =>
   res.render("updateFile.ejs", { id: req.params.id })
 );
-router.put("/update/:id", updateFile);
+router.post("/update/:id", updateFile);
 // router.delete("/delete", deleteFile);
 
 export { router as fileRoutes };

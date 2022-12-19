@@ -18,6 +18,7 @@ h2 {
 img {
   display: block;
   max-width: 100%;
+  object-fit: contain;
   height: auto;
 }
 
@@ -34,16 +35,31 @@ select {
   padding: 4px 8px;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
+
 .buttonGroup {
   display: flex;
   gap: 24px;
 }
 
+.fileListing {
+  display: grid;
+  gap: 16px;
+}
+
 .fileCard {
-  display: flex;
   gap: 24px;
   background: #eee;
   padding: 16px;
+}
+
+@media (min-width: 600px) {
+  .fileCard {
+    display: flex;
+  }
 }
 
 .fileCardContent {
@@ -54,6 +70,5 @@ select {
 
 .fileCardImage {
   width: 200px;
-  height: auto;
   border: 1px solid #ddd;
 }

@@ -12,10 +12,10 @@ const readFile = async (id) => {
 
   const response = await client.readInventoryItemAsync(args);
   const file = await response[0].out;
-  const image = await readAttachment(file.thumbnail);
+  const preview = await readAttachment(file.thumbnail);
   const printFile = await readAttachment(file.document);
 
-  return { ...file, image, printFile };
+  return { ...file, preview, printFile };
 };
 
 const readFiles = async (req, res) => {

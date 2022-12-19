@@ -9,6 +9,8 @@ dotenv.config();
 
 app.use(express.static("public"));
 
+app.use(express.urlencoded({ extended: true }));
+
 app.use("/", indexRoutes);
 app.use("/files", fileRoutes);
 
