@@ -18,6 +18,7 @@ const updateFile = async (req, res) => {
   const args = {
     inventoryItem: {
       id: req.params.id,
+      dateLastPriceChg: new Date().toISOString(),
       ...req.body,
     },
   };
