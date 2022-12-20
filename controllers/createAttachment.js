@@ -1,16 +1,16 @@
 import soap from "soap";
 
-const createAttachment = async (key, field, file) => {
+const createAttachment = async (key, file) => {
   const url = `${process.env.BASE_URL}/AttachmentService?wsdl`;
   const args = {
     in0: "InventoryItem",
-    in1: `@field=${field}`,
-    in2: "",
+    in1: key,
+    in2: file.fieldname,
     in3: {
-      content: file.data.toString("base64"),
+      content: file.buffer.toString("base64"),
       fileExtension: file.mimetype.split("/")[1],
       mimeType: file.mimetype,
-      name: file.filename,
+      name: file.originalname,
     },
   };
 

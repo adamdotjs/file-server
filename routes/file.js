@@ -10,8 +10,9 @@ const upload = multer();
 
 router.get("/", readFiles);
 router.get("/file/:id", readFile);
-router.post("/add", upload.any(), createFile);
+router.get("/create", (req, res) => res.render("createFile.ejs"));
+router.post("/create", upload.any(), createFile);
 router.get("/update/:id", readExistingValues);
-router.post("/update/:id", upload.any(), updateFile);
+router.post("/update/:id", upload.none(), updateFile);
 
 export { router as fileRoutes };

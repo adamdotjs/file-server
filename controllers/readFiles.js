@@ -17,7 +17,6 @@ const readFile = async (id) => {
   const preview = await readAttachment(file.thumbnail);
   const printFile = await readAttachment(file.document);
 
-  console.log(file);
   return { ...file, preview, printFile };
 };
 
@@ -38,7 +37,11 @@ const readFiles = async (req, res) => {
     return readFile(id);
   });
   const results = await Promise.all(files).then((results) => results);
-  res.render("files.ejs", { files: results });
+
+  //send back a list of customers with existing files so the user can filter them if needed
+  const allCustomers = [...new Set(results.map((result) => result.customer))];
+
+  res.render("files.ejs", { files: results, customers: allCustomers });
 };
 
 export { readFiles };

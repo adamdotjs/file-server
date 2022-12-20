@@ -48,6 +48,7 @@ ul {
 .fileListing {
   display: grid;
   gap: 16px;
+  margin-top: 36px;
 }
 
 .fileCard {
@@ -65,10 +66,14 @@ ul {
 .fileCardContent {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .fileCardImage {
   width: 200px;
   border: 1px solid #ddd;
+}
+
+.fileCardContent .buttonGroup {
+  margin-top: auto;
 }

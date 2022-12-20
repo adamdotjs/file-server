@@ -1,5 +1,17 @@
 <%- include("partials/header.ejs") %>
 
+<form>
+  <label>
+    <span>Customer</span>
+    <select name="customer" id="customer">
+      <option value="all">All Customers</option>
+      <% customers.forEach(customer => { %>
+      <option value="<%= customer %> "><%= customer %></option>
+      <% }) %>
+    </select>
+  </label>
+</form>
+
 <ul class="fileListing">
   <% files.forEach(file => { %>
   <li><%- include("partials/fileCard.ejs", {file})%></li>
