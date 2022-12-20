@@ -2,13 +2,15 @@ import soap from "soap";
 import { readAttachment } from "./readAttachment.js";
 
 const readFile = async (req, res) => {
-  const url = `https://internet:47tig7D@epace.tigerpress.com/rpc/services/ReadObject?wsdl`;
+  const url = `${process.env.BASE_URL}/ReadObject?wsdl`;
   const args = {
     inventoryItem: { id: req.params.id },
   };
 
   const client = await soap.createClientAsync(url);
-  client.setSecurity(new soap.BasicAuthSecurity("internet", "47tig7D"));
+  client.setSecurity(
+    new soap.BasicAuthSecurity(process.env.AUTH_USER, process.env.AUTH_PW)
+  );
   const response = await client.readInventoryItemAsync(args);
 
   const file = await response[0].out;

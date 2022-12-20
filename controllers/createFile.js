@@ -1,15 +1,22 @@
 import soap from "soap";
 
-const url = `http://${process.env.EPACE_HOST}/rpc/services/ReadObject?wsdl`;
-
 const createFile = async (req, res) => {
-  try {
-    const client = await soap.createClientAsync(url);
-    const result = await client.CreateFile({}, () => {});
-    res.status(200).send(result);
-  } catch (error) {
-    res.status(400).send(error.message);
-  }
+  const url = `${process.env.BASE_URL}/CreateObject?wsdl`;
+  const args = {
+    inventoryItem: {
+      ...req.body,
+      dateLastPriceChg: new Date().toISOString(),
+    },
+  };
+
+  const client = await soap.createClientAsync(url);
+  client.setSecurity(
+    new soap.BasicAuthSecurity(process.env.AUTH_USER, process.env.AUTH_PW)
+  );
+  const response = await client.addInventoryItemAsync(args);
+
+  console.log(response[0].out);
+  res.redirect("/files");
 };
 
 export { createFile };
