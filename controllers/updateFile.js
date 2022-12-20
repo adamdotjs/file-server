@@ -1,4 +1,5 @@
 import soap from "soap";
+import { createAttachment } from "./createAttachment.js";
 
 const readExistingValues = async (req, res) => {
   const URL = `${process.env.BASE_URL}/ReadObject?wsdl`;
@@ -30,6 +31,10 @@ const updateFile = async (req, res) => {
     new soap.BasicAuthSecurity(process.env.AUTH_USER, process.env.AUTH_PW)
   );
   const response = await client.updateInventoryItemAsync(args);
+  if (req.files.length > 0) {
+    await createAttachment(response[0].out.id, req.files[0]);
+    await createAttachment(response[0].out.id, req.files[1]);
+  }
 
   console.log(response[0].out);
   res.redirect("/files");

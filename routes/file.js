@@ -13,6 +13,6 @@ router.get("/file/:id", readFile);
 router.get("/create", (req, res) => res.render("createFile.ejs"));
 router.post("/create", upload.any(), createFile);
 router.get("/update/:id", readExistingValues);
-router.post("/update/:id", upload.none(), updateFile);
+router.post("/update/:id", upload.any(), updateFile);
 
 export { router as fileRoutes };
