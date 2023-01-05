@@ -31,7 +31,12 @@ const updateFile = async (req, res) => {
     new soap.BasicAuthSecurity(process.env.AUTH_USER, process.env.AUTH_PW)
   );
   const response = await client.updateInventoryItemAsync(args);
-  if (req.files.length > 0) {
+
+  if (req.files.length === 1) {
+    await createAttachment(response[0].out.id, req.files[0]);
+  }
+
+  if (req.files.length === 2) {
     await createAttachment(response[0].out.id, req.files[0]);
     await createAttachment(response[0].out.id, req.files[1]);
   }

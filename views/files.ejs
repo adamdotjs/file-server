@@ -1,16 +1,19 @@
 <%- include("partials/header.ejs") %>
 
-<form>
-  <label>
-    <span>Customer</span>
-    <select name="customer" id="customer">
-      <option value="all">All Customers</option>
-      <% customers.forEach(customer => { %>
-      <option value="<%= customer %> "><%= customer %></option>
-      <% }) %>
-    </select>
-  </label>
-</form>
+<header>
+  <form>
+    <label>
+      <span>Customer</span>
+      <select name="customer" id="customer">
+        <option value="all">All Customers</option>
+        <% customers.forEach(customer => { %>
+        <option value="<%= customer %> "><%= customer %></option>
+        <% }) %>
+      </select>
+    </label>
+  </form>
+  <a href="/files/create">Add new File</a>
+</header>
 
 <ul class="fileListing">
   <% files.forEach(file => { %>
