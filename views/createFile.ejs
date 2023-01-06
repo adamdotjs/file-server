@@ -5,39 +5,48 @@
   <form method="POST" action="/files/create" enctype="multipart/form-data">
     <label>
       <span>Customer ID</span>
-      <input type="text" name="customer" id="customer" />
+      <input required type="text" name="customer" id="customer" />
     </label>
     <label>
       <span>Part Number</span>
-      <input type="text" name="id" id="id" />
+      <input required type="text" name="id" id="id" />
     </label>
     <label>
       <span>Description</span>
-      <input type="text" name="description" id="description" />
+      <input required type="text" name="description" id="description" />
     </label>
     <label>
       <span>Revision Number</span>
-      <input type="text" name="addlDesc" id="addlDesc" />
+      <input required type="text" name="addlDesc" id="addlDesc" />
     </label>
     <label>
       <span>Colors (front)</span>
-      <input type="text" name="minOrderQty" id="minOrderQty" />
+      <input required type="text" name="minOrderQty" id="minOrderQty" />
     </label>
     <label>
       <span>Colors (back)</span>
-      <input type="text" name="maxOrderQty" id="maxOrderQty" />
+      <input required type="text" name="maxOrderQty" id="maxOrderQty" />
     </label>
     <label>
       <span>Ink Requirements</span>
-      <input type="text" name="briefDescription" id="briefDescription" />
+      <input
+        required
+        type="text"
+        name="briefDescription"
+        id="briefDescription"
+      />
+    </label>
+    <label>
+      <span>Die Number (optional)</span>
+      <input type="text" name="displayAsDesc" id="displayAsDesc" />
     </label>
     <label>
       <span>Preview Image</span>
-      <input type="file" name="thumbnail" id="thumbnail" />
+      <input required type="file" name="thumbnail" id="thumbnail" />
     </label>
     <label>
       <span>New Print File</span>
-      <input type="file" name="document" id="document" />
+      <input required type="file" name="document" id="document" />
     </label>
     <button>Add File</button>
   </form>

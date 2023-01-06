@@ -7,8 +7,9 @@
     <h2>P/N: <%= file.id %></h2>
     <h3><%= file.description %></h3>
     <p>Revision: <%= file.addlDesc %></p>
-    <p>Print Colors: <%= file.minOrderQty %> / <%= file.maxOrderQty %></p>
-    <p>Ink Requirements: <%= file.briefDescription %></p>
+    <p>Print colors: <%= file.minOrderQty %> / <%= file.maxOrderQty %></p>
+    <p>Ink requirements: <%= file.briefDescription %></p>
+    <p>Die number: <%= file.displayAsDesc %></p>
     <p>Created on <%= file.dateSetup.toLocaleDateString('en-US') %></p>
     <p>Last updated on <%= file.dateLastPriceChg.toLocaleDateString('en-US') %></p>
     <p>

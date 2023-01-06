@@ -10,6 +10,7 @@
     <label>
       <span>Customer ID</span>
       <input
+        required
         type="text"
         name="customer"
         id="customer"
@@ -19,6 +20,7 @@
     <label>
       <span>Description</span>
       <input
+        required
         type="text"
         name="description"
         id="description"
@@ -28,6 +30,7 @@
     <label>
       <span>Revision Number</span>
       <input
+        required
         type="text"
         name="addlDesc"
         id="addlDesc"
@@ -37,6 +40,7 @@
     <label>
       <span>Colors (front)</span>
       <input
+        required
         type="text"
         name="minOrderQty"
         id="minOrderQty"
@@ -46,6 +50,7 @@
     <label>
       <span>Colors (back)</span>
       <input
+        required
         type="text"
         name="maxOrderQty"
         id="maxOrderQty"
@@ -55,6 +60,7 @@
     <label>
       <span>Ink Requirements</span>
       <input
+        required
         type="text"
         name="briefDescription"
         id="briefDescription"
@@ -62,12 +68,21 @@
       />
     </label>
     <label>
+      <span>Die Number (optional)</span>
+      <input
+        type="text"
+        name="displayAsDesc"
+        id="displayAsDesc"
+        value="<%= file.displayAsDesc %>"
+      />
+    </label>
+    <label>
       <span>Preview Image</span>
-      <input type="file" name="thumbnail" id="thumbnail" />
+      <input required type="file" name="thumbnail" id="thumbnail" />
     </label>
     <label>
       <span>New Print File</span>
-      <input type="file" name="document" id="document" />
+      <input required type="file" name="document" id="document" />
     </label>
     <button>Submit Changes</button>
   </form>

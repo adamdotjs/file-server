@@ -46,6 +46,11 @@ header {
   gap: 16px;
 }
 
+main {
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
 .buttonGroup {
   display: flex;
   gap: 24px;
@@ -53,14 +58,23 @@ header {
 
 .fileListing {
   display: grid;
+  grid-auto-rows: 1fr;
   gap: 16px;
   margin-top: 36px;
 }
 
+@media (min-width: 800px) {
+  .fileListing {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .fileCard {
   gap: 24px;
-  background: #eee;
+  background: #fff;
+  border: 1px solid black;
   padding: 16px;
+  height: 100%;
 }
 
 @media (min-width: 600px) {
@@ -72,12 +86,14 @@ header {
 .fileCardContent {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+}
+
+.fileCardContent > * + * {
+  margin-top: 0.5rem;
 }
 
 .fileCardImage {
   width: 200px;
-  border: 1px solid #ddd;
 }
 
 .fileCardContent .buttonGroup {
