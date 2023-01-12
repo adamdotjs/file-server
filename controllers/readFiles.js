@@ -41,7 +41,8 @@ const readFiles = async (req, res) => {
   //send back a list of customers with existing files so the user can filter them if needed
   const allCustomers = [...new Set(results.map((result) => result.customer))];
 
-  res.render("files.ejs", { files: results, customers: allCustomers });
+  // res.render("files.ejs", { files: results, customers: allCustomers });
+  res.send({ files: results });
 };
 
 export { readFiles };
